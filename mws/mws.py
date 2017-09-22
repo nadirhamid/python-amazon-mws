@@ -119,12 +119,12 @@ class MWS(object):
     """ Base Amazon API class """
 
     # This is used to post/get to the different uris used by amazon per api
-    # ie. /Orders/2011-01-01
+    # ie. /Orders/2019-09-01
     # All subclasses must define their own URI only if needed
     URI = "/"
 
     # The API version varies in most amazon APIs
-    VERSION = "2009-01-01"
+    VERSION = "2013-09-01"
 
     # There seem to be some xml namespace issues. therefore every api subclass
     # is recommended to define its namespace, so that it can be referenced
@@ -398,9 +398,9 @@ class Reports(MWS):
 class Orders(MWS):
     """ Amazon Orders API """
 
-    URI = "/Orders/2011-01-01"
-    VERSION = "2011-01-01"
-    NS = '{https://mws.amazonservices.com/Orders/2011-01-01}'
+    URI = "/Orders/2013-09-01"
+    VERSION = "2013-09-01"
+    NS = "{https://mws.amazonservices.com/Orders/2013-09-01}"
 
     def list_orders(self, marketplaceids, created_after=None, created_before=None, lastupdatedafter=None,
                     lastupdatedbefore=None, orderstatus=(), fulfillment_channels=(),
@@ -470,7 +470,7 @@ class Products(MWS):
         """ Returns a list of products and their attributes, based on a list of
             product identifier values (ASIN, SellerSKU, UPC, EAN, ISBN, GCID  and JAN)
             The identifier type is case sensitive.
-            Added in Fourth Release, API version 2011-10-01
+            Added in Fourth Release, API version 2013-09-01
         """
         data = dict(Action='GetMatchingProductForId',
                     MarketplaceId=marketplaceid,
@@ -556,9 +556,9 @@ class Products(MWS):
 class Sellers(MWS):
     """ Amazon MWS Sellers API """
 
-    URI = '/Sellers/2011-07-01'
-    VERSION = '2011-07-01'
-    NS = '{http://mws.amazonservices.com/schema/Sellers/2011-07-01}'
+    URI = '/Sellers/2013-09-01'
+    VERSION = '2013-09-01'
+    NS = '{http://mws.amazonservices.com/schema/Sellers/2013-09-01}'
 
     def list_marketplace_participations(self):
         """
@@ -583,8 +583,8 @@ class Sellers(MWS):
 
 
 class InboundShipments(MWS):
-    URI = "/FulfillmentInboundShipment/2010-10-01"
-    VERSION = '2010-10-01'
+    URI = "/FulfillmentInboundShipment/2013-09-01"
+    VERSION = '2013-09-01'
 
     # To be completed
 
@@ -592,9 +592,9 @@ class InboundShipments(MWS):
 class Inventory(MWS):
     """ Amazon MWS Inventory Fulfillment API """
 
-    URI = '/FulfillmentInventory/2010-10-01'
-    VERSION = '2010-10-01'
-    NS = "{http://mws.amazonaws.com/FulfillmentInventory/2010-10-01}"
+    URI = '/FulfillmentInventory/2013-09-01'
+    VERSION = '2013-09-01'
+    NS = "{http://mws.amazonaws.com/FulfillmentInventory/2013-09-01}"
 
     def list_inventory_supply(self, skus=(), datetime=None, response_group='Basic'):
         """ Returns information on available inventory """
@@ -612,8 +612,8 @@ class Inventory(MWS):
 
 
 class OutboundShipments(MWS):
-    URI = "/FulfillmentOutboundShipment/2010-10-01"
-    VERSION = "2010-10-01"
+    URI = "/FulfillmentOutboundShipment/2013-09-01"
+    VERSION = "2013-09-01"
     # To be completed
 
 
