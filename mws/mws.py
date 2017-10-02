@@ -124,7 +124,7 @@ class MWS(object):
     URI = "/"
 
     # The API version varies in most amazon APIs
-    VERSION = "2013-09-01"
+    VERSION = "2009-01-01"
 
     # There seem to be some xml namespace issues. therefore every api subclass
     # is recommended to define its namespace, so that it can be referenced
